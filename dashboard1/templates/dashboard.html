@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Данные о последней активности ТС пользователя</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Данные о последней активности ТС пользователя</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Дата события</th>
+                <th>Широта</th>
+                <th>Долгота</th>
+                <th>Количество спутников</th>
+                <th>Скорость</th>
+                <th>Пробег</th>
+                <th>Напряжение на борту</th>
+                <th>Датчики уровня топлива</th>
+            </tr>
+        </thead>
+        <tbody id="data-table-body">
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const data = [
+                {
+                    "EVENT_DATE": "2023-06-14T15:30:00",
+                    "LATITUDE": 55.7558,
+                    "LONGITUDE": 37.6176,
+                    "SATELLITES_NMB": 5,
+                    "SPEED": 60,
+                    "MILEAGE": 15000,
+                    "U_BOARD": 12.5,
+                    "LLS": 0.8
+                }
+            ];
+
+            const tbody = document.getElementById("data-table-body");
+
+            data.forEach(item => {
+                const row = document.createElement("tr");
+
+                const eventDate = document.createElement("td");
+                eventDate.textContent = item.EVENT_DATE;
+                row.appendChild(eventDate);
+
+                const latitude = document.createElement("td");
+                latitude.textContent = item.LATITUDE;
+                row.appendChild(latitude);
+
+                const longitude = document.createElement("td");
+                longitude.textContent = item.LONGITUDE;
+                row.appendChild(longitude);
+
+                const satellitesNmb = document.createElement("td");
+                satellitesNmb.textContent = item.SATELLITES_NMB;
+                row.appendChild(satellitesNmb);
+
+                const speed = document.createElement("td");
+                speed.textContent = item.SPEED;
+                row.appendChild(speed);
+
+                const mileage = document.createElement("td");
+                mileage.textContent = item.MILEAGE;
+                row.appendChild(mileage);
+
+                const uBoard = document.createElement("td");
+                uBoard.textContent = item.U_BOARD;
+                row.appendChild(uBoard);
+
+                const lls = document.createElement("td");
+                lls.textContent = item.LLS;
+                row.appendChild(lls);
+
+                tbody.appendChild(row);
+            });
+        });
+    </script>
+</body>
+</html>
