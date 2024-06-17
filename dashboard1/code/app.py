@@ -4,7 +4,7 @@ from flask import Flask, render_template
 
 from data_fetch import get_jwt_token, get_activity_parameters
 
-app = Flask(__name__, template_folder="C:\\Users\\BOTA\\PycharmProjects\\dashboard1\\dashboard1\\templates")
+app = Flask(__name__, template_folder=r"C:\Users\BOTA\PycharmProjects\dashboard1\technical_task\dashboard1\templates")
 
 
 @app.route('/')

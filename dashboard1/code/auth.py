@@ -2,7 +2,7 @@ import os
 import requests
 from dotenv import load_dotenv
 
-load_dotenv(r"C:\Users\BOTA\PycharmProjects\dashboard1\dashboard1\.env")
+load_dotenv(r"C:\Users\BOTA\PycharmProjects\dashboard1\technical_task\dashboard1\.env")
 
 def get_jwt_token(login, password):
     url = "https://online.omnicomm.ru/auth/login?jwt=1"
@@ -17,7 +17,7 @@ def get_jwt_token(login, password):
 
     try:
         response = requests.post(url, json=data, headers=headers)
-        response.raise_for_status()  # Проверяем успешность запроса (2xx)
+        response.raise_for_status()
 
         token_data = response.json()
         jwt_token = token_data.get("jwt")
