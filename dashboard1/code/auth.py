@@ -2,7 +2,9 @@ import os
 import requests
 from dotenv import load_dotenv
 
-load_dotenv(r"C:\Users\BOTA\PycharmProjects\dashboard1\technical_task\dashboard1\.env")
+dotenv_path = os.path.join(os.getcwd(), '..', '.env')
+
+load_dotenv(dotenv_path)
 
 def get_jwt_token(login, password):
     url = "https://online.omnicomm.ru/auth/login?jwt=1"

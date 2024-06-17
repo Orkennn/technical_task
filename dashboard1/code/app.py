@@ -4,8 +4,12 @@ from flask import Flask, render_template
 
 from data_fetch import get_jwt_token, get_activity_parameters
 
-app = Flask(__name__, template_folder=r"C:\Users\BOTA\PycharmProjects\dashboard1\technical_task\dashboard1\templates")
 
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+
+template_dir = os.path.join(basedir, '..', 'templates')
+app = Flask(__name__, template_folder=template_dir)
 
 @app.route('/')
 def dashboard():
